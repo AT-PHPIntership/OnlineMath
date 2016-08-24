@@ -1,10 +1,7 @@
 <?php
-
 namespace App\Providers;
-
 use Illuminate\Routing\Router;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
-
 class RouteServiceProvider extends ServiceProvider
 {
     /**
@@ -15,39 +12,37 @@ class RouteServiceProvider extends ServiceProvider
      * @var string
      */
     protected $namespace = 'App\Http\Controllers';
-
     /**
      * Define your route model bindings, pattern filters, etc.
      *
-     * @param  \Illuminate\Routing\Router  $router
+     * @param \Illuminate\Routing\Router $router the router
+     *
      * @return void
      */
     public function boot(Router $router)
     {
         //
-
         parent::boot($router);
     }
-
     /**
      * Define the routes for the application.
      *
-     * @param  \Illuminate\Routing\Router  $router
+     * @param \Illuminate\Routing\Router $router the router
+     *
      * @return void
      */
     public function map(Router $router)
     {
         $this->mapWebRoutes($router);
-
         //
     }
-
     /**
      * Define the "web" routes for the application.
      *
      * These routes all receive session state, CSRF protection, etc.
      *
-     * @param  \Illuminate\Routing\Router  $router
+     * @param \Illuminate\Routing\Router $router the router
+     *
      * @return void
      */
     protected function mapWebRoutes(Router $router)

@@ -1,18 +1,16 @@
 <?php
-
 namespace App\Http\Middleware;
-
 use Closure;
 use Illuminate\Support\Facades\Auth;
-
 class Authenticate
 {
     /**
      * Handle an incoming request.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
-     * @param  string|null  $guard
+     * @param \Illuminate\Http\Request $request the application request
+     * @param \Closure                 $next    the callback after middleware
+     * @param string|null              $guard   the authentication guard
+     *
      * @return mixed
      */
     public function handle($request, Closure $next, $guard = null)
@@ -24,7 +22,6 @@ class Authenticate
                 return redirect()->guest('login');
             }
         }
-
         return $next($request);
     }
 }

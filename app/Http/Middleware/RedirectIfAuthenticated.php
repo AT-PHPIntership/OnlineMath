@@ -1,18 +1,16 @@
 <?php
-
 namespace App\Http\Middleware;
-
 use Closure;
 use Illuminate\Support\Facades\Auth;
-
 class RedirectIfAuthenticated
 {
     /**
      * Handle an incoming request.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
-     * @param  string|null  $guard
+     * @param \Illuminate\Http\Request $request the application request
+     * @param \Closure                 $next    the callback after middleware
+     * @param string|null              $guard   the authentication guard
+     *
      * @return mixed
      */
     public function handle($request, Closure $next, $guard = null)
@@ -20,7 +18,6 @@ class RedirectIfAuthenticated
         if (Auth::guard($guard)->check()) {
             return redirect('/');
         }
-
         return $next($request);
     }
 }
