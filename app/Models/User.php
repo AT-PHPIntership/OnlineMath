@@ -18,14 +18,13 @@ class User extends Authenticatable
         'id',
         'class_id',
         'role_id',
+        'group_id',
         'name',
         'username'
         'password',
         'birthday',
         'gender',
         'adress',
-        'phone_number',
-        'avratar',
         'created_at',
         'updated_at'
     );
