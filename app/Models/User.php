@@ -16,16 +16,14 @@ class User extends Authenticatable
 
     protected $fillable = array(
         'id',
-        'class_id',
         'role_id',
+        'group_id',
         'name',
-        'username'
+        'username',
         'password',
         'birthday',
         'gender',
-        'adress',
-        'phone_number',
-        'avratar',
+        'address',
         'created_at',
         'updated_at'
     );
@@ -41,7 +39,7 @@ class User extends Authenticatable
 
     
     /**
-     * User belongs to a class.
+     * User belongs to a group.
      *
      * @return Illuminate\Database\Eloquent\Relations\BelongsTo
      */
@@ -67,6 +65,6 @@ class User extends Authenticatable
      */
     public function role()
     {
-        return $this->hasOne('App\Models\Role', 'role_id');
+        return $this->hasOne('App\Models\Role');
     }
 }
