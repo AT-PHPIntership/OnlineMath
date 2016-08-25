@@ -18,8 +18,8 @@ class CreateBooksTable extends Migration
             $table->string('description', 200);
             $table->string('author', 50);
             $table->integer('test_scores')->unsigned();
-            $table->integer('class_id')->unsigned();
-            $table->foreign('class_id')->references('id')->on('class');
+            $table->integer('group_id')->unsigned();
+            $table->foreign('group_id')->references('id')->on('groups');
             $table->integer('category_id')->unsigned();
             $table->foreign('category_id')->references('id')->on('categories');
             $table->timestamps();

@@ -24,8 +24,8 @@ class CreateUsersTable extends Migration
             $table->string('address', 255)->nullable();
             $table->string('phone_number', 11)->nullable();
             $table->string('avatar')->default('default.png');
-            $table->integer('class_id')->unsigned();
-            $table->foreign('class_id')->references('id')->on('class');
+            $table->integer('group_id')->unsigned();
+            $table->foreign('group_id')->references('id')->on('groups');
             $table->rememberToken()->nullable();
             $table->timestamps();
         });

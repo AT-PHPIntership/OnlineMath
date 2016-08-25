@@ -18,8 +18,8 @@ class CreateLessonsTable extends Migration
              $table->string('description', 200);
             $table->integer('page')->unsigned();
              $table->integer('index')->unsigned();
-             $table->integer('class_id')->unsigned();
-            $table->foreign('class_id')->references('id')->on('class');
+             $table->integer('group_id')->unsigned();
+            $table->foreign('group_id')->references('id')->on('groups');
             $table->integer('category_id')->unsigned();
             $table->foreign('category_id')->references('id')->on('categories_lessons');
             $table->timestamps();
