@@ -11,8 +11,7 @@ class BooksTableSeeder extends Seeder
      */
     public function run()
     {
-
-        $faker = Faker\Factory::create();
+         $faker = Faker\Factory::create();
         for($i = 0; $i < 100; $i++){
         	DB::table('books')->insert([
         		'category_id' => rand(1, 15),
@@ -24,5 +23,5 @@ class BooksTableSeeder extends Seeder
                 'created_at' => $faker->dateTimeThisDecade($max = 'now')
             ]);
         }
-     }    
+    }
 }

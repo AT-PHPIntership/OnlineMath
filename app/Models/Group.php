@@ -23,7 +23,7 @@ class Group extends Model
     );
 
    /**
-     * Class has many test
+     * Group has many test
      *
      * @return Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -34,7 +34,7 @@ class Group extends Model
     }
 
     /**
-     * Class has many lesson
+     * Group has many lesson
      *
      * @return Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -45,7 +45,7 @@ class Group extends Model
     }
 
     /**
-     * Class has many
+     * Group has many
      *
      * @return Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -56,7 +56,7 @@ class Group extends Model
     }
 
     /**
-     * Category has many Product
+     * Group has many Book
      *
      * @return Illuminate\Database\Eloquent\Relations\HasMany
      */

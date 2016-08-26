@@ -7,16 +7,13 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class User extends Authenticatable
 {
     protected $table = 'users';
-
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-
     protected $fillable = array(
         'id',
-        'class_id',
         'role_id',
         'group_id',
         'name',
@@ -24,7 +21,7 @@ class User extends Authenticatable
         'password',
         'birthday',
         'gender',
-        'adress',
+        'address',
         'created_at',
         'updated_at'
     );
@@ -40,7 +37,7 @@ class User extends Authenticatable
 
     
     /**
-     * User belongs to a class.
+     * User belongs to a group.
      *
      * @return Illuminate\Database\Eloquent\Relations\BelongsTo
      */
@@ -66,6 +63,6 @@ class User extends Authenticatable
      */
     public function role()
     {
-        return $this->hasOne('App\Models\Role', 'role_id');
+        return $this->hasOne('App\Models\Role');
     }
 }

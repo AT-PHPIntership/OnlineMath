@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class CategoriesTableSeeder extends Seeder
+class TestsLessonTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -13,9 +13,11 @@ class CategoriesTableSeeder extends Seeder
     {
         $faker = Faker\Factory::create();
 
-        for($i = 0; $i < 100; $i++){
-        	DB::table('categories')->insert([
-        		'name' => $faker-> word,
+        for($i = 0; $i < 50; $i++){
+        	DB::table('tests_lessons')->insert([
+        		'lesson_id' => rand(1, 15),
+                'name' => $faker-> word,
+                'number_quenstion' => $faker->text,
                 'created_at' => $faker->dateTimeThisDecade($max = 'now')
        	]);
         }
