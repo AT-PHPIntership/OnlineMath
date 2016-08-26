@@ -1,6 +1,7 @@
 <?php
-use App\Models\Group;
+
 use Illuminate\Database\Seeder;
+use App\Models\Group;
 
 class GroupTableSeeder extends Seeder
 {
@@ -23,7 +24,7 @@ class GroupTableSeeder extends Seeder
         $group->number_students = 3;
         $group->save();
 
-        for($i = 0; $i < 100; $i++){
+        for($i = 0; $i < 50; $i++){
         	DB::table('groups')->insert([
         		'name' => $faker-> word,
                 'number_students' => rand(1, 100), 

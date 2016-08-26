@@ -1,8 +1,6 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Models\Category;
-use Faker\Factory as Faker;
 
 class CategoriesTableSeeder extends Seeder
 {
@@ -13,14 +11,13 @@ class CategoriesTableSeeder extends Seeder
      */
     public function run()
     {
-        $faker = Faker::create();
+        $faker = Faker\Factory::create();
 
-        for ($i=0; $i < 15; $i++) {
-            $category = Category::create([
-                'name' => $faker->word,
-                'description' => $faker->realText(255, 2),
-                'created_at' => $faker->dateTimeThisYear($max = 'now')
-            ]);
+        for($i = 0; $i < 100; $i++){
+        	DB::table('categories')->insert([
+        		'name' => $faker-> word,
+                'created_at' => $faker->dateTimeThisDecade($max = 'now')
+       	]);
         }
     }
 }

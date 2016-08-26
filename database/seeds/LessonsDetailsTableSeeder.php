@@ -11,9 +11,9 @@ class LessonsDetailsTableSeeder extends Seeder
      */
     public function run()
     {
-       $faker = Faker\Factory::create();
+        $faker = Faker\Factory::create();
 
-        for($i = 0; $i < 100; $i++){
+        for($i = 0; $i < 50; $i++){
         	DB::table('lessons_details')->insert([
         		'number_lessons' => rand(1, 100),
                 'user_id' => rand(1, 20),

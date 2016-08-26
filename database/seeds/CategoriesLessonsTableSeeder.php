@@ -11,7 +11,7 @@ class CategoriesLessonsTableSeeder extends Seeder
      */
     public function run()
     {
-        $faker = Faker\Factory::create();
+         $faker = Faker\Factory::create();
 
         for($i = 0; $i < 100; $i++){
         	DB::table('categories_lessons')->insert([
@@ -19,6 +19,5 @@ class CategoriesLessonsTableSeeder extends Seeder
                 'created_at' => $faker->dateTimeThisDecade($max = 'now')
        	]);
         }
-    }    
+    }
 }
-    
