@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Database\Seeder;
-
 use App\Models\Role;
 
 class RolesTableSeeder extends Seeder
@@ -13,16 +12,18 @@ class RolesTableSeeder extends Seeder
      */
     public function run()
     {
+        $faker = Faker\Factory::create();
         Role::create([
-            'name' => 'SuperAdmin'
+            'name' => 'Admin',
+            'created_at' => $faker->dateTimeThisDecade('now')
         ]);
-
         Role::create([
-            'name' => 'Manager'
+            'name' => 'user',
+            'created_at' => $faker->dateTimeThisDecade('now')
         ]);
-
         Role::create([
-            'name' => 'Staff'
+            'name' => 'customer',
+            'created_at' => $faker->dateTimeThisDecade('now')
         ]);
     }
 }

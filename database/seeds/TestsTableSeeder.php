@@ -11,9 +11,9 @@ class TestsTableSeeder extends Seeder
      */
     public function run()
     {
-         $faker = Faker\Factory::create();
+          $faker = Faker\Factory::create();
 
-        for($i = 0; $i < 100; $i++){
+        for($i = 0; $i < 50; $i++){
         	DB::table('tests')->insert([
         		'group_id' => rand(1, 15),
                 'name' => $faker-> word,
