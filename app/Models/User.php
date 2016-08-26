@@ -23,7 +23,11 @@ class User extends Authenticatable
         'password',
         'birthday',
         'gender',
+<<<<<<< HEAD
         'address',
+=======
+        'adress',
+>>>>>>> 2d44e5fa1ea4bbe6f7aa3935d5d4a2db486a2a0f
         'created_at',
         'updated_at'
     );
