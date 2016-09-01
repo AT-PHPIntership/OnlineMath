@@ -226,7 +226,7 @@ return [
             'repositories'=>'Repositories\\Eloquent',
             'interfaces'=>'Contracts\\Repositories',
             'transformers'=>'Transformers',
-            'presenters'=>'Presenters'
+            'presenters'=>'Presenters',
             'validators'   => 'Validators',
             'controllers'  => 'Http/Controllers',
             'provider'     => 'RepositoryServiceProvider',
