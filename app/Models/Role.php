@@ -3,10 +3,14 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Prettus\Repository\Contracts\Transformable;
+use Prettus\Repository\Traits\TransformableTrait;
 
-class Role extends Model
+class Role extends Model implements Transformable
 {
-    protected $table = 'roles';
+    use TransformableTrait;
+
+   protected $table = 'roles';
   
     /**
      * The attributes that are mass assignable.
@@ -27,4 +31,5 @@ class Role extends Model
     {
         return $this->hasMany('App\Models\User');
     }
+
 }

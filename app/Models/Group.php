@@ -3,10 +3,14 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Prettus\Repository\Contracts\Transformable;
+use Prettus\Repository\Traits\TransformableTrait;
 
-class Group extends Model
+class Group extends Model implements Transformable
 {
-    protected $table = 'groups';
+    use TransformableTrait;
+
+   protected $table = 'groups';
 
     /**
      * The attributes that are mass assignable.
@@ -64,4 +68,5 @@ class Group extends Model
     {
         return $this->hasMany('App\Models\Book');
     }
+
 }

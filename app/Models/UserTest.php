@@ -3,10 +3,14 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Prettus\Repository\Contracts\Transformable;
+use Prettus\Repository\Traits\TransformableTrait;
 
-class UserTest extends Model
+class UserTest extends Model implements Transformable
 {
-    protected $table = 'users_tests';
+    use TransformableTrait;
+
+ protected $table = 'users_tests';
 
     /**
      * The attributes that are mass assignable.

@@ -3,10 +3,14 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Prettus\Repository\Contracts\Transformable;
+use Prettus\Repository\Traits\TransformableTrait;
 
-class CategoryLesson extends Model
+class CategoryLesson extends Model implements Transformable
 {
-    protected $table = 'categories_lessons';
+    use TransformableTrait;
+
+  protected $table = 'categories_lessons';
 
     /**
      * The attributes that are mass assignable.
@@ -29,4 +33,6 @@ class CategoryLesson extends Model
     {
         return $this->hasMany('App\Models\Lesson');
     }
+
+
 }

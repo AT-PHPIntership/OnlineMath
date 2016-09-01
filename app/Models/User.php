@@ -2,11 +2,15 @@
 
 namespace App\Models;
 
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\Model;
+use Prettus\Repository\Contracts\Transformable;
+use Prettus\Repository\Traits\TransformableTrait;
 
-class User extends Authenticatable
+class User extends Model implements Transformable
 {
-    protected $table = 'users';
+    use TransformableTrait;
+
+   protected $table = 'users';
     /**
      * The attributes that are mass assignable.
      *
@@ -65,4 +69,5 @@ class User extends Authenticatable
     {
         return $this->hasOne('App\Models\Role');
     }
+
 }
