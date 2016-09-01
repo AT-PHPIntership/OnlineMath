@@ -3,9 +3,13 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Prettus\Repository\Contracts\Transformable;
+use Prettus\Repository\Traits\TransformableTrait;
 
-class LessonDetail extends Model
+class LessonDetail extends Model implements Transformable
 {
+    use TransformableTrait;
+
     protected $table = 'lessons_details';
 
     /**

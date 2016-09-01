@@ -3,10 +3,13 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use DB;
+use Prettus\Repository\Contracts\Transformable;
+use Prettus\Repository\Traits\TransformableTrait;
 
-class Book extends Model
+class Book extends Model implements Transformable
 {
+    use TransformableTrait;
+
     protected $table = 'books';
 
     /**
