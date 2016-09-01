@@ -10,7 +10,7 @@ class CategoryLesson extends Model implements Transformable
 {
     use TransformableTrait;
 
-  protected $table = 'categories_lessons';
+    protected $table = 'categories_lessons';
 
     /**
      * The attributes that are mass assignable.
@@ -33,6 +33,4 @@ class CategoryLesson extends Model implements Transformable
     {
         return $this->hasMany('App\Models\Lesson');
     }
-
-
 }

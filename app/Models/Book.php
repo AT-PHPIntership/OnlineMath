@@ -10,7 +10,7 @@ class Book extends Model implements Transformable
 {
     use TransformableTrait;
 
-  protected $table = 'books';
+    protected $table = 'books';
 
     /**
      * The attributes that are mass assignable.
@@ -48,6 +48,4 @@ class Book extends Model implements Transformable
     {
         return $this->belongsTo('App\Models\Group');
     }
-
-
 }

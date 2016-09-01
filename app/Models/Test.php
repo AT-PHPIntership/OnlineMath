@@ -10,7 +10,7 @@ class Test extends Model implements Transformable
 {
     use TransformableTrait;
 
-  protected $table = 'tests';
+    protected $table = 'tests';
 
     /**
      * The attributes that are mass assignable.
@@ -46,6 +46,4 @@ class Test extends Model implements Transformable
     {
         return $this->belongsTo('App\Models\Group');
     }
-
-
 }

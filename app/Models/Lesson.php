@@ -68,6 +68,4 @@ class Lesson extends Model implements Transformable
     {
         return $this->hasMany('App\Models\LessonDeatail');
     }
-
-
 }

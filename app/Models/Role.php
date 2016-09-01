@@ -10,7 +10,7 @@ class Role extends Model implements Transformable
 {
     use TransformableTrait;
 
-   protected $table = 'roles';
+    protected $table = 'roles';
   
     /**
      * The attributes that are mass assignable.
@@ -31,5 +31,4 @@ class Role extends Model implements Transformable
     {
         return $this->hasMany('App\Models\User');
     }
-
 }
