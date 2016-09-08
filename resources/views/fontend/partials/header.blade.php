@@ -6,7 +6,7 @@
 <link href="{{asset('frontend/css/style.css')}}" rel="stylesheet" type="text/css" />
 <link href="{{asset('frontend/css/main.css')}}" rel="stylesheet" type="text/css" /> 
 <link href="{{asset('frontend/css/style1.css')}}" rel="stylesheet" type="text/css" />
-<link href="{{asset('frontend/css/chamhoc.css')}}" rel="stylesheet" type="text/css" />
+<link href="{{asset('frontend/css/learn.css')}}" rel="stylesheet" type="text/css" />
 <link href="{{asset('frontend/css/apprise.css')}}" rel="stylesheet" type="text/css" />
 <link href="{{asset('frontend/css/hd_style..css')}}" rel="stylesheet" type="text/css" />
 <link href="{{asset('frontend/css/colorbox.css')}}" rel="stylesheet" type="text/css" />

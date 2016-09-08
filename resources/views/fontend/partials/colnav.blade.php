@@ -4,7 +4,7 @@
       <div class="bg_t">
       </div>
       <div class="content">
-        <img src="{{asset('frontend/imgs/quatang.jpg')}}" alt="">
+        <img src="{{asset('frontend/imgs/happy.jpg')}}" alt="">
       </div>
       <div class="bg_b">
       </div>
@@ -35,7 +35,7 @@
         </div>
         <div class="content">
           <div class="inner_content">
-            <img class="list" src="{{asset('frontend/imgs/canhan.jpg')}}" alt="">
+            <img class="list" src="{{asset('frontend/imgs/5_bg_profile_slg.png.jpg')}}" alt="">
           </div>
         </div>
       </div>
