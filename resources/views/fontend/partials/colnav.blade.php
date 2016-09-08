@@ -30,7 +30,7 @@
           </a>
         </div>
       </div>
-      <div class="box box_thi">
+      <div class="box box_test">
         <div class="bg_t">
         </div>
         <div class="content">

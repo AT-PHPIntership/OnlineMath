@@ -59,7 +59,7 @@
                   <div class="bg_l">
                   </div>
                   <div class="content" >
-                    <img alt="@lang('common.header.home')" src="{{asset('frontend/imgs/icon_home.png')}}" id="imghome" class="img_icon header_trangchu"/>
+                    <img alt="@lang('common.header.home')" src="{{asset('frontend/imgs/icon_home.png')}}" id="imghome" class="img_icon header_home"/>
                     <img alt="@lang('common.header.home')" src="{{asset('frontend/imgs/ico_home.png')}}" class="img_txt" />
                   </div>
                   <div class="bg_r">
@@ -89,7 +89,7 @@
                         <a href="#" class="first-child1 hover_img">
                           <img alt="@lang('common.header.top')" src="{{asset('frontend/imgs/2_icon_top.png')}}" class="img_icon"
                                 />
-                          <img alt="@lang('common.header.top')" src="{{asset('frontend/imgs/skill_text.png')}}" class="img_txt">
+                          <img alt="@lang('common.header.top')" src="{{asset('frontend/imgs/skill1.png')}}" class="img_txt">
                         </a>
                       </th>                 
                     </tr>
