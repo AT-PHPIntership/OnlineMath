@@ -1,45 +1,26 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Laravel</title>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>@yield('page-title') @lang('common.header.title')</title>
+     @include('frontend.layouts.partials.header')
+  </head>
 
-        <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
+  <!--/head-->
+  <body class="homepage">
+   <header id="header">
+   @include('frontend.layouts.partials.search')
+        @include('frontend.layouts.partials.nav')
 
-        <style>
-            html, body {
-                height: 100%;
-            }
-
-            body {
-                margin: 0;
-                padding: 0;
-                width: 100%;
-                display: table;
-                font-weight: 100;
-                font-family: 'Lato';
-            }
-
-            .container {
-                text-align: center;
-                display: table-cell;
-                vertical-align: middle;
-            }
-
-            .content {
-                text-align: center;
-                display: inline-block;
-            }
-
-            .title {
-                font-size: 96px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="container">
-            <div class="content">
-                <div class="title">Laravel 5</div>
-            </div>
-        </div>
-    </body>
+   </header><!-- /header -->
+ 
+    <!--/header-->
+    @include('frontend.layouts.partials.slider')
+    <!--content-->
+        @yield('content')
+    <!--/#main-slider-->
+    @include('frontend.layouts.partials.footer')
+    <!--/#footer-->
+   @include('frontend.layouts.partials.jquery')
+  </body>
 </html>
