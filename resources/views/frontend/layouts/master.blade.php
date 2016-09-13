@@ -22,8 +22,6 @@
         @yield('content')
       </div>
     </section>
-    @include('frontend.layouts.partials.slider')
-    @yield('content')
     <!--/#main-slider-->
     @include('frontend.layouts.partials.footer')
     <!--/#footer-->

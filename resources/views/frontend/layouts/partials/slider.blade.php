@@ -22,7 +22,7 @@
     <!--/.carousel-inner-->
   </div>
   <!--/.carousel-->
-  <a class="prev hidden-xs" href="#main-slider" data-slide="prev">t
+  <a class="prev hidden-xs" href="#main-slider" data-slide="prev">
     <i class="fa fa-chevron-left">
     </i>
   </a>
