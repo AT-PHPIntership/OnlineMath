@@ -1,9 +1,12 @@
+// Time
+const DEFAULT_SLIDER = 800;
+const DEFAULT_TIMETOP = 500;
 jQuery(function($) {'use strict',
 
 	//#main-slider
 	$(function(){
 		$('#main-slider.carousel').carousel({
-			interval: 8000
+			interval: DEFAULT_SLIDER
 		});
 	});
 
@@ -44,14 +47,7 @@ jQuery(function($) {'use strict',
 		event.preventDefault();
 		var form_status = $('<div class="form_status"></div>');
 		$.ajax({
-			url: $(this).attr('action'),
-
-			beforeSend: function(){
-				form.prepend( form_status.html('<p><i class="fa fa-spinner fa-spin"></i> Email is sending...</p>').fadeIn() );
-			}
-		}).done(function(data){
-			form_status.html('<p class="text-success">' + data.message + '</p>').delay(3000).fadeOut();
-		});
+			url: $(this).attr('action')
 	});
 
 	
@@ -60,7 +56,7 @@ jQuery(function($) {'use strict',
 		event.preventDefault();
 		$('html, body').animate({
 			scrollTop: $("body").offset().top
-		}, 500);
+		},DEFAULT_TIMETOP);
 	});	
 
 	//Pretty Photo
