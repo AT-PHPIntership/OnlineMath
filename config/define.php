@@ -4,3 +4,4 @@ return [
 	'result_found' => 1,
 	'accepted' => 1
 	];
+	

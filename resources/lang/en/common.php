@@ -25,9 +25,7 @@ return [
     'phone'=>'+84975461174',
     'by'=>'Thực hiện bởi Nga Tran',
     ],
-
     'auth' => [
-        'value'=>0,
         'title_register' => 'Đăng ký',
         'registration' => 'Đăng ký tài khoản mới',
         'name' => 'Họ và tên',
