@@ -9,8 +9,6 @@ jQuery(function($) {'use strict',
 			interval: DEFAULT_SLIDER
 		});
 	});
-
-
 	// accordian
 	$('.accordion-toggle').on('click', function(){
 		$(this).closest('.panel-group').children().each(function(){
@@ -49,8 +47,6 @@ jQuery(function($) {'use strict',
 		$.ajax({
 			url: $(this).attr('action')
 	});
-
-	
 	//goto top
 	$('.gototop').click(function(event) {
 		event.preventDefault();
@@ -58,7 +54,6 @@ jQuery(function($) {'use strict',
 			scrollTop: $("body").offset().top
 		},DEFAULT_TIMETOP);
 	});	
-
 	//Pretty Photo
 	$("a[rel^='prettyPhoto']").prettyPhoto({
 		social_tools: false
