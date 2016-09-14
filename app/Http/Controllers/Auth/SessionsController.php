@@ -73,7 +73,7 @@ class SessionsController extends Controller
      */
     protected function signIn(Request $request)
     {
-     return Auth::attempt($this->getCredentials($request), $request->has('remember'));
+        return Auth::attempt($this->getCredentials($request), $request->has('remember'));
     }
 
     /**
