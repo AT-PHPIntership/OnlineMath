@@ -12,12 +12,13 @@
       <div class="item active">
       </div>
       <!--/.item-->
-      <div class="item" id="sliderconten">
+      <div class="item" id="slidercontent">
       </div>
       <!--/.item-->
       <div class="item" id="slider">
       </div>
       <!--/.item-->
+
     </div>
     <!--/.carousel-inner-->
   </div>

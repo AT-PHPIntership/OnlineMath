@@ -16,7 +16,9 @@ Route::get('/', function () {
 })->name('home');
 
 Route::auth();
-
+Route::get('/logout', ['uses' => 'Auth\SessionsController@logout', 'as' => 'logout']);
+Route::get('/login', ['uses' => 'Auth\SessionsController@showLoginForm', 'as' => 'login']);
+Route::post('/login', ['uses' => 'Auth\SessionsController@login', 'as' => 'auth.login']);
 Route::get('/register', ['uses' => 'Auth\AuthController@showRegistrationForm', 'as' => 'register']);
 
 Route::post('/register', ['uses' => 'Auth\AuthController@register', 'as' => 'auth.register']);
