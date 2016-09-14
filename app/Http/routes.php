@@ -12,5 +12,15 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('frontend.layouts.master');
+})->name('home');
+
+Route::auth();
+
+Route::get('/register', ['uses' => 'Auth\AuthController@showRegistrationForm', 'as' => 'register']);
+
+Route::post('/register', ['uses' => 'Auth\AuthController@register', 'as' => 'auth.register']);
+
+Route::group(['middleware' => ['auth']], function () {
+    Route::resource('post', 'PostController', ['except' => ['show', 'index']]);
 });
