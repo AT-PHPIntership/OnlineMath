@@ -3,7 +3,7 @@
   <div class="container">
     <div class="navbar-header">
       <a class="navbar-brand" href="index.html">
-        <img src="{{asset('frontend/images/logo.png')}}" alt="logo">
+        <img src="{{asset('images/logo.png')}}" alt="logo">
       </a>
     </div>
     <div class="collapse navbar-collapse navbar-right">
