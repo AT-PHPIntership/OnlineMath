@@ -33,7 +33,7 @@
         <li>
           <a href="#">@lang('common.homepage.menuhelp')
           </a>
-        </li> 
+        </li>
       </ul>
     </div>
   </div>
