@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Models;
+
 use Carbon\Carbon;
 
 use Illuminate\Database\Eloquent\Model;
@@ -69,7 +70,7 @@ class User extends Authenticatable implements Transformable
      */
     public function role()
     {
-        return $this->hasOne('App\Models\Role','id', 'role_id');
+        return $this->hasOne('App\Models\Role', 'id', 'role_id');
     }
 
     /**

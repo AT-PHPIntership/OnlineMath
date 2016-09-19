@@ -42,6 +42,6 @@ return [
     'menuhelp'=>'Trợ Giúp',
     'phone'=>'+84975461174',
     'by'=>'Thực hiện bởi Nga Tran',
-  'insufficient_role' => 'Tài khoản không có quyền truy cập.',
+    'insufficient_role' => 'Tài khoản không có quyền truy cập.',
     ],
 ];
