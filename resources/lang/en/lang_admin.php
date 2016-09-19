@@ -15,5 +15,19 @@ return [
     'user' => [
         'danger' => 'Danger :',
         'success' => 'Successful :',
+
+        'create' => 'Thêm',
+        'no' => 'STT',
+        'name' => 'Tên',
+        'username' => 'Tên đăng nhập',
+        'address' => 'Address',
+        'title_delete' => 'Delete User',
+        'confirm' => 'Do you want delete this User ?',
+       'username'=>'Tên đăng nhập',
+       'birthday'=>'Ngày sinh',
+       'gender'=>'Giới tính',
+       'address'=>'Địa chỉ',
+       'option'=>'Lựa chọn',
+
     ],
 ];

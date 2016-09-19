@@ -1,7 +1,9 @@
+
 /vendor
 /node_modules
 /public/storage
+/public/bower
+/public/uploads
 Homestead.yaml
 Homestead.json
 .env
-/public/resource
