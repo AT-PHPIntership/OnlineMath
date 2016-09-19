@@ -1,5 +1,16 @@
 <?php
-
+/*
+|--------------------------------------------------------------------------
+| Admin dashboard Routes
+|--------------------------------------------------------------------------
+|
+*/
+Route::group(['prefix' => 'admin'], function () {
+    Route::group(['middleware' => ['auth', 'roles'], 'namespace' => 'Backend', 'roles' => ['Admin']], function () {
+        Route::resource('user', 'UserController');
+    });
+});
+/*
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -12,7 +23,7 @@
 */
 
 Route::get('/', function () {
-    return view('frontend.layouts.master');
+    return view('backend.layouts.master');
 })->name('home');
 
 Route::auth();
@@ -22,7 +33,3 @@ Route::post('/login', ['uses' => 'Auth\SessionsController@login', 'as' => 'auth.
 Route::get('/register', ['uses' => 'Auth\AuthController@showRegistrationForm', 'as' => 'register']);
 
 Route::post('/register', ['uses' => 'Auth\AuthController@register', 'as' => 'auth.register']);
-
-Route::group(['middleware' => ['auth']], function () {
-    Route::resource('post', 'PostController', ['except' => ['show', 'index']]);
-});
