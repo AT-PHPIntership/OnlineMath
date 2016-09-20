@@ -1,6 +1,7 @@
 @extends('backend.layouts.master')
-
-@section('title', trans('lang_admin_manager_user.title_manage_user'))
+@section('section-title')
+  @lang('backend.common.listuser')
+@stop
 @section('content')
 
 	<h2 class="text-left">{{trans('lang_admin_manager_user.user_list')}}</h2><br>
@@ -30,9 +31,9 @@
                             <td>{{$item->birthday}}</td>
                               <td>{{$item->gender}}</td>
                                 <td>{{$item->address}}</td>
-                                                                <td>
+                      <td>
                         <a href="" title="@lang('products.title_show_product')" class="btn btn-info btn-xs"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
-                        <a href="" title="@lang('products.title_edit_product')" class="btn btn-warning btn-xs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                                                  <a href="{{ route('admin.user.edit', [$item->id]) }}" class="btn btn-warning btn-xs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                          <a  data-toggle="modal" data-target="#confirm-deleting" class="btn btn-danger btn-xs btn_delete" title="@lang('products.btn_remove_product')"><i class="fa fa-trash"></i></a>
                          <input id="" type="hidden" value="">
                       </td>

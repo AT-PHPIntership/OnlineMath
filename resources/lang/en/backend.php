@@ -12,6 +12,7 @@ return [
     | these language lines according to your application's requirements.
     |
     */
+
     'header' => [
         'title'=>'onlinemath',
         'profile' => 'Thông tin cá nhân',
@@ -31,7 +32,6 @@ return [
       'top'=>'Thống kê top',
 
     ],
-
     'menuuser'=>'Người dùng',
     'menuhome'=>'Trang chủ',
     'menulesson'=>'Bài Học',
@@ -43,5 +43,7 @@ return [
     'phone'=>'+84975461174',
     'by'=>'Thực hiện bởi Nga Tran',
     'insufficient_role' => 'Tài khoản không có quyền truy cập.',
+    'updateuser'=> 'Cập nhật user',
+    'listuser'=>'Danh sách user',
     ],
 ];
