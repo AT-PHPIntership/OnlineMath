@@ -25,7 +25,10 @@ return [
   'option_customer' => 'Tài khoản khách',
   'btn_cancel' => 'Reset',
   'btn_submit' => 'Submit',
+  'btn_delete'=>'Xóa',
   'label_gender'=>'Giới tình',
+  'confirm_title'=>'Xóa thành viên',
+  'confirm_msg'=>'Bạn có thật sự muốn xóa không ?',
     'user' => [
       'edit_sucsess'=>'Cập nhật thành công',
         'edit_fail'=>'Lỗi cập nhật vui lòng kiểm tra lại',
@@ -42,6 +45,8 @@ return [
        'gender'=>'Giới tính',
        'address'=>'Địa chỉ',
        'option'=>'Lựa chọn',
-
+       'error_delete_key'=>'Vui lòng xóa người sử dụng ở nhứng nơi liên quan',
+       'error_delte'=>'Xóa người dùng không thành công',
+       'delete_success'=>'Xóa người dùng thành công',
     ],
 ];
