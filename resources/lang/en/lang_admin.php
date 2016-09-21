@@ -57,4 +57,4 @@ return [
        'create_success'=>'Tạo tài khoản thành công',
        'create_error'=>'Lỗi tạo tài khoản',
     ],
-];
+    ];
