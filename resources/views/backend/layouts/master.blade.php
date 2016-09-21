@@ -17,7 +17,7 @@
     <!--content-->
 
       <div class="container">
-        @include('backend.layouts.partials.messages')
+        <h2>@yield('section-title')</h2>
         @yield('content')
       </div>
 

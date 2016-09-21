@@ -43,5 +43,6 @@ return [
     'phone'=>'+84975461174',
     'by'=>'Thực hiện bởi Nga Tran',
     'insufficient_role' => 'Tài khoản không có quyền truy cập.',
+    'create'=>'Tạo mới người dùng',
     ],
 ];
