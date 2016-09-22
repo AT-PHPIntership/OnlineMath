@@ -25,6 +25,7 @@ return [
   'option_customer' => 'Tài khoản khách',
   'btn_cancel' => 'Reset',
   'btn_submit' => 'Submit',
+  'btn_delete'=>'Xóa',
   'label_gender'=>'Giới tình',
   'select_empty'=>'Chọn',
   'label_password'=>'Nhập mật khẩu',
@@ -34,11 +35,10 @@ return [
   'label_male_number'=>'1',
   'label_female_number'=>'0',
     'user' => [
-        'eg_name' => 'Tên',
-        'eg_username'=>'Tên đăng nhập',
-        'danger' => 'Danger :',
-        'success' => 'Successful :',
-    'user' => [
+      'eg_name' => 'Tên',
+      'eg_username'=>'Tên đăng nhập',
+      'confirm_title'=>'Xóa thành viên',
+     'confirm_msg'=>'Bạn có thật sự muốn xóa không ?',
       'edit_sucsess'=>'Cập nhật thành công',
         'edit_fail'=>'Lỗi cập nhật vui lòng kiểm tra lại',
         'danger' => 'Lỗi: ',
@@ -56,5 +56,8 @@ return [
        'option'=>'Lựa chọn',
        'create_success'=>'Tạo tài khoản thành công',
        'create_error'=>'Lỗi tạo tài khoản',
+       'error_delete_key'=>'Vui lòng xóa người sử dụng ở nhứng nơi liên quan',
+       'error_delte'=>'Xóa người dùng không thành công',
+       'delete_success'=>'Xóa người dùng thành công',
     ],
-    ];
+  ];

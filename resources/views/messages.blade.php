@@ -1,5 +1,4 @@
 @if (Session::has('success'))
-
 	<div class="alert alert-success" role="alert">
 		<strong>{{trans('lang_admin.user.success')}}</strong> {{ Session::get('success') }}
 	</div>

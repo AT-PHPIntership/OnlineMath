@@ -1,34 +1,46 @@
 <?php
+
 namespace App\Http\Controllers\Backend;
 
 use Illuminate\Http\Request;
+
 use App\Http\Requests;
 use App\Http\Requests\UserRequest;
 use App\Http\Controllers\Controller;
 use App\Repositories\Eloquent\UserRepositoryEloquent;
 use App\Repositories\Eloquent\GroupRepositoryEloquent;
 use App\Repositories\Eloquent\RoleRepositoryEloquent;
+use App\Repositories\Eloquent\LessonDetailRepositoryEloquent;
+use App\Repositories\Eloquent\UserTestRepositoryEloquent;
 use Session;
+use Exception;
 
 class UserController extends Controller
 {
+
+    protected $userRepository;
     protected $groupRepository;
     protected $roleRepository;
-    protected $userRepository;
+    protected $userTestRepository;
+    protected $lessonDetailRP;
     /**
      * Create a new authentication controller instance.
      *
-     * @param UserRepositoryEloquent  $user  the user repository
-     * @param GroupRepositoryEloquent $group the user repository
-     * @param RoleRepositoryEloquent  $role  the user repository
+     * @param UserRepositoryEloquent         $user         the user repository
+     * @param GroupRepositoryEloquent        $group        the group repository
+     * @param RoleRepositoryEloquent         $role         the role repository
+     * @param UserTestRepositoryEloquent     $usertest     the usertest repository
+     * @param LessonDetailRepositoryEloquent $lessondetail the lessondetail repository
      *
      * @return void
      */
-    public function __construct(UserRepositoryEloquent $user, GroupRepositoryEloquent $group, RoleRepositoryEloquent $role)
+    public function __construct(UserRepositoryEloquent $user, GroupRepositoryEloquent $group, RoleRepositoryEloquent $role, UserTestRepositoryEloquent $usertest, LessonDetailRepositoryEloquent $lessondetail)
     {
         $this->userRepository= $user;
         $this->groupRepository= $group;
         $this->roleRepository=$role;
+        $this->userTestRepository = $usertest;
+        $this->lessonDetailRP = $lessondetail;
     }
     /**
      * Display a listing of the resource.
@@ -37,9 +49,10 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = $this->userRepository->all();
+        $users= $this->userRepository->all();
         return view('backend.users.index', compact('users'));
     }
+
     /**
      * Show the form for creating a new resource.
 
@@ -52,6 +65,7 @@ class UserController extends Controller
 
           return view('backend.users.create', compact('groups'), compact('roles'));
     }
+
     /**
       * Store a newly created resource in storage.
       *
@@ -74,6 +88,7 @@ class UserController extends Controller
             return redirect()->route('admin.user.create');
         }
     }
+
     /**
      * Display the specified resource.
      *
@@ -83,56 +98,56 @@ class UserController extends Controller
     {
         //
     }
+
     /**
      * Show the form for editing the specified resource.
      *
-     * @param int $id id
-     *
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit()
     {
-        try {
-            $users = $this->userRepository->find($id);
-            return view('backend.users.edit', compact('users'));
-        } catch (Exception $ex) {
-            Session::flash('danger', trans('lang_admin.user.no_user'));
-            return redirect()->route('admin.user.index');
-        }
+        //
     }
+
     /**
      * Update the specified resource in storage.
      *
-     * @param \Illuminate\Http\Request\UserRequest $request request
-     * @param int                                  $id      id
-     *
      * @return \Illuminate\Http\Response
      */
-    public function update(UserRequest $request, $id)
-    {
-        $data             = $request->all();
-        $data['role_id']  = config('common.ADMIN_ROLE_ID');
-        $data['types_id'] = config('common.ADMIN_ROLE_ID');
-
-        try {
-            $users = $this->userRepository->find($id);
-            if (!empty($users)) {
-                $this->userRepository->update($data, $id);
-                Session::flash('success', trans('lang_admin.user.edit_success'));
-                return redirect() -> route('admin.user.index');
-            }
-        } catch (Exception $e) {
-            Session::flash(trans('danger'), trans('lang_admin.user.edit_fail'));
-            return redirect()->route('admin.user.index');
-        }
-    }
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy()
+    public function update()
     {
         //
+    }
+
+    /**
+      * Remove the specified resource from storage.
+      *
+      * @param int $id id
+      *
+      * @return \Illuminate\Http\Response
+      */
+    public function destroy($id)
+    {
+
+        try {
+            $this->userRepository->find($id);
+            $countusertests =  $this->userTestRepository->findByField('user_id', $id, ['id'])->count();
+            $countlessondetails =  $this->lessonDetailRP->findByField('user_id', $id, ['id'])->count();
+            if ($countusertests  || $countlessondetails) {
+                  return redirect()->route('admin.user.index')
+                                   ->withMessage(trans('lang_admin.user.error_delete_key'));
+            } else {
+                $result = $this->userRepository->delete($id);
+                if ($result) {
+                    Session::flash('success', trans('lang_admin.user.delete_success'));
+                } else {
+                    Session::flash('danger', trans('lang_admin.user.error_delete'));
+                }
+                return redirect()->route('admin.user.index')
+                               ->withMessage(trans('lang_admin.user.error_delete'));
+            }
+        } catch (Exception $ex) {
+            return redirect() -> route('admin.user.index');
+        }
     }
 }
