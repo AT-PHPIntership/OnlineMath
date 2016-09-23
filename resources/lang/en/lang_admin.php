@@ -60,4 +60,12 @@ return [
        'error_delte'=>'Xóa người dùng không thành công',
        'delete_success'=>'Xóa người dùng thành công',
     ],
+    'book'=>[
+      'list_books'=>'Những quyển sách hiện có',
+      'no'=>'STT',
+      'name'=>'Tên',
+      'author'=>'Tác giả',
+      'description'=>'Mô tả',
+
+    ],
   ];

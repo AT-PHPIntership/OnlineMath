@@ -20,7 +20,6 @@
         <h2>@yield('section-title')</h2>
         @yield('content')
       </div>
-
     <!--/#main-slider-->
     @include('backend.layouts.partials.footer')
     <!--/#footer-->
