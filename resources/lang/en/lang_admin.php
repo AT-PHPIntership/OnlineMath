@@ -12,7 +12,7 @@ return [
     | these language lines according to your application's requirements.
     |
     */
-  'label_required'=>'*',
+    'label_required'=>'*',
   'label_username'=>'Tên người đăng nhập',
   'label_name'=>'Tên người sử dụng',
   'label_address'=>'Địa chỉ',
@@ -27,9 +27,18 @@ return [
   'btn_submit' => 'Submit',
   'btn_delete'=>'Xóa',
   'label_gender'=>'Giới tình',
-  'confirm_title'=>'Xóa thành viên',
-  'confirm_msg'=>'Bạn có thật sự muốn xóa không ?',
+  'select_empty'=>'Chọn',
+  'label_password'=>'Nhập mật khẩu',
+  'label_password_confirm'=>'Nhập lại mật khẩu',
+  'label_role'=>'Quyền truy cập',
+  'label_group'=>'Nhóm lớp',
+  'label_male_number'=>'1',
+  'label_female_number'=>'0',
     'user' => [
+      'eg_name' => 'Tên',
+      'eg_username'=>'Tên đăng nhập',
+      'confirm_title'=>'Xóa thành viên',
+     'confirm_msg'=>'Bạn có thật sự muốn xóa không ?',
       'edit_sucsess'=>'Cập nhật thành công',
         'edit_fail'=>'Lỗi cập nhật vui lòng kiểm tra lại',
         'danger' => 'Lỗi: ',
@@ -45,8 +54,10 @@ return [
        'gender'=>'Giới tính',
        'address'=>'Địa chỉ',
        'option'=>'Lựa chọn',
+       'create_success'=>'Tạo tài khoản thành công',
+       'create_error'=>'Lỗi tạo tài khoản',
        'error_delete_key'=>'Vui lòng xóa người sử dụng ở nhứng nơi liên quan',
        'error_delte'=>'Xóa người dùng không thành công',
        'delete_success'=>'Xóa người dùng thành công',
     ],
-];
+  ];
