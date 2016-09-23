@@ -21,15 +21,30 @@ class UserRequest extends Request
      */
     public function rules()
     {
-        return [
-            'username'   => 'required|regex:/^[A-Za-z \t]*\p{L}+/i|max:50|min:3',
-            'address'    => 'regex:/^[.,\-\/A-Za-z0-9 \t]*\p{L}+/i|max: 100|min:6',
-            'birthday' => 'required|date_format:d/m/Y',
-            'name' => 'required|min:4|max:100',
-            'birthday' => 'required',
-            'gender' => 'required|boolean',
-            'address' => 'required|max:255',
-            'role_id' => 'required|integer|between:2,3',
-        ];
+        switch ($this->method()) {
+            case 'PUT':
+            case 'PATCH':
+                return [
+                  'username'   => 'required|regex:/^[A-Za-z \t]*\p{L}+/i|max:50|min:3',
+                  'address'    => 'regex:/^[.,\-\/A-Za-z0-9 \t]*\p{L}+/i|max: 100|min:6',
+                  'birthday' => 'required|date_format:d/m/Y',
+                  'name' => 'required|min:4|max:100',
+                  'birthday' => 'required',
+                  'gender' => 'required|boolean',
+                  'address' => 'required|max:255',
+                  'role_id' => 'required|integer|between:2,3',
+                ];
+            case 'POST':
+                return [
+                  'name' => 'required|max:100',
+                  'username' => 'required|max:255|unique:users',
+                  'password' => 'required|max:32|min:6|confirmed',
+                  'password_confirmation' => 'required|max:32|min:6',
+                  'birthday' => 'required|date_format:d/m/Y',
+                  'role_id' => 'required|integer|between:1,2,3',
+                ];
+            default:
+                return [];
+        }
     }
 }

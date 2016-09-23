@@ -10,7 +10,7 @@
 <div class="box box-success">
   <div class="col-md-12">
     <div class="table-responsive">
-      <table id="listbooks"  class="table table-bordered table-hover" cellspacing="0" width="100%">
+      <table id="list_book"  class="table table-bordered table-hover" cellspacing="0" width="100%">
         <thead>
           <tr>
             <th class="text-center">@lang('lang_admin.book.no')
@@ -60,13 +60,13 @@
 <link rel="stylesheet" href="/bower/datatables/media/css/dataTables.bootstrap.min.css" media="screen" title="no title" charset="utf-8">
 @endpush
 @push('end-page-scripts')
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('#list_book').DataTable();
+  });
+</script><!-- event delte book -->
 <script src="/bower/datatables/media/js/dataTables.bootstrap.min.js">
 </script>
 <script src="/bower/datatables/media/js/jquery.dataTables.min.js">
 </script>
-<script type="text/javascript">
-  $(document).ready(function(){
-    $('#listbooks').DataTable();
-  });
-</script><!-- event delte book -->
 @endpush
