@@ -22,7 +22,7 @@
       </div>
 
     <!--/#main-slider-->
-    @include('backend.layouts.partials.footer')
+
     <!--/#footer-->
     @include('backend.layouts.partials.jquery')
     @stack('end-page-scripts')
