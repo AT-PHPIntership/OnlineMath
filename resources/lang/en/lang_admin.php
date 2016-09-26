@@ -68,4 +68,12 @@ return [
     'create_success'=>'Thêm mới bài thi thành công',
     'create_error'=>'Lỗi tạo bài thi',
     ],
+    'book'=>[
+      'list_books'=>'Những quyển sách hiện có',
+      'no'=>'STT',
+      'name'=>'Tên',
+      'author'=>'Tác giả',
+      'description'=>'Mô tả',
+
+    ],
   ];

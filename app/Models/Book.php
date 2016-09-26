@@ -21,14 +21,14 @@ class Book extends Model implements Transformable
     protected $fillable = array(
         'id',
         'class_id',
-        'category_id'
+        'category_id',
         'name',
         'author',
         'description',
         'created_at',
         'updated_at'
     );
-     
+
     /**
      * Book belongs to Category.
      *

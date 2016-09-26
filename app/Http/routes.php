@@ -9,6 +9,7 @@ Route::group(['prefix' => 'admin'], function () {
     Route::group(['middleware' => ['auth', 'roles'], 'namespace' => 'Backend', 'roles' => ['Admin']], function () {
         Route::resource('test', 'TestController');
          Route::resource('user', 'UserController');
+        Route::resource('book', 'BookController');
     });
 });
 /*
