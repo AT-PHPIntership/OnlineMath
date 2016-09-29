@@ -7,7 +7,8 @@
 */
 Route::group(['prefix' => 'admin'], function () {
     Route::group(['middleware' => ['auth', 'roles'], 'namespace' => 'Backend', 'roles' => ['Admin']], function () {
-        Route::resource('user', 'UserController');
+        Route::resource('test', 'TestController');
+         Route::resource('user', 'UserController');
         Route::resource('book', 'BookController');
     });
 });
@@ -36,6 +37,7 @@ Route::group(['prefix' => 'user'], function () {
 | and give it the controller to call when that URI is requested.
 |
 */
+
 
 Route::get('/', function () {
     return view('backend.layouts.master');
