@@ -14,7 +14,7 @@
       <input type="text" name="name_group" value="{{$group->name}}"/>
       @if(count($group->test))
       @foreach ($group->test as $test)
-      <a href="{{ route('question.exercise', [$test->id]) }}" class="btn btn-warning btn-xs">
+      <a href="{{ route('test.exercise', [$test->id]) }}" class="btn btn-warning btn-xs">
         <input type ="text" value="{{$test->name}}"
         <i class="fa fa-pencil-square-o" aria-hidden="true">
         </i>

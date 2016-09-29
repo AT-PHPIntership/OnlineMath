@@ -36,4 +36,21 @@ class Question extends Model implements Transformable
     {
         return $this->belongsTo('App\Models\Test');
     }
+    /**
+     * Use loop
+     *
+     * @return Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public static  function scores($array1, $array2)
+    {
+      $count = count($array2);
+      $score =0;
+      for($i =1; $i< $count; $i++)
+      {
+        if($array1[$i]==$array2[$i])
+                $score++;
+      }
+      return $score;
+    }
+
 }

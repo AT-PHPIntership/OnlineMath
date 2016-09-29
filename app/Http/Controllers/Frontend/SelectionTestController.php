@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Requests\QuestionRequest;
+use App\Models\Question;
 use App\Http\Controllers\Controller;
 use App\Repositories\Eloquent\TestRepositoryEloquent;
 use App\Repositories\Eloquent\GroupRepositoryEloquent;
@@ -47,7 +48,7 @@ class SelectionTestController extends Controller
     {
         $groups= $this->groupRepository->with('test')->all();
         $tests = $this->testRepository->all();
-        return view('frontend.tests.selectiontest', compact('groups'), compact('tests'));
+        return view('frontend.tests.selection', compact('groups'), compact('tests'));
     }
 
     /**
@@ -60,96 +61,33 @@ class SelectionTestController extends Controller
     public function getExercise($id)
     {
         $questions = $this->questionRepository->with('test')->findByField('test_id', $id)->all();
-        return view('frontend.tests.exercise', compact('questions'), compact('id'));
+        return view('frontend.tests.exercise', compact('questions','id'));
     }
-    /**
-      * Store a newly created resource in storage.
-      *
-      * @param \Illuminate\Http\QuestionRequest $request Question request
-      * @param int                              $id      id
-      *
-      * @return \Illuminate\Http\Response
-      */
-    public function postExercise(QuestionRequest $request, $id)
-    {
-         $data=$request->all();
-        try {
-            $data['user_id']=Auth::user()->id;
-            $data['test_id'] = $id;
-            $result = $this->userTestRepository->create($data);
-            if ($result) {
-                Session::flash('success', trans('uesr.test.finish_test'));
-                return redirect()->route('question.exercise', $data['test_id']);
-            } else {
-                Session::flash('danger', trans('user.test.not_finish_test'));
-                return redirect()->route('question.exercise', $data['test_id']);
-            }
-        } catch (Exception $e) {
-            Session::flash('danger', trans('user.test.not_finish_test'));
-            return redirect()->route('question.exercise', $data['test_id']);
+        /**
+          * Store a newly created resource in storage.
+          *
+          * @param \Illuminate\Http\QuestionRequest $request Question request
+          *
+          * @return \Illuminate\Http\Response
+          */
+
+        public function postExercise(QuestionRequest $request, $id)
+        {
+             $data=$request->all();
+             $array_answer = $data['answer'];
+             $array_question = $data['answer_question'];
+             $score = Question::scores($array_answer, $array_question);
+             try {
+                 $data['test_scores'] = $score;
+                 $data['user_id']=Auth::user()->id;
+                 $data['test_id'] = $id;
+                 $result = $this->userTestRepository->create($data);
+                     Session::flash('success', trans('uesr.test.finish_test'));
+                     return view('frontend.tests.result', compact('score'));
+             } catch (Exception $e) {
+                 Session::flash('danger', trans('user.test.not_finish_test'));
+                 return redirect()->route('test.exercise', $data['test_id']);
+             }
         }
-    }
 
-
-    /**
-     * Display the specified resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function show()
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function edit()
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function update()
-    {
-        //
-    }
-
-    /**
-      * Remove the specified resource from storage.
-      *
-      * @param int $id id
-      *
-      * @return \Illuminate\Http\Response
-      */
-    public function destroy($id)
-    {
-
-        try {
-            $this->userRepository->find($id);
-            $countusertests =  $this->userTestRepository->findByField('user_id', $id, ['id'])->count();
-            $countlessondetails =  $this->lessonDetailRP->findByField('user_id', $id, ['id'])->count();
-            if ($countusertests  || $countlessondetails) {
-                  return redirect()->route('admin.user.index')
-                                   ->withMessage(trans('lang_admin.user.error_delete_key'));
-            } else {
-                $result = $this->userRepository->delete($id);
-                if ($result) {
-                    Session::flash('success', trans('lang_admin.user.delete_success'));
-                } else {
-                    Session::flash('danger', trans('lang_admin.user.error_delete'));
-                }
-                return redirect()->route('admin.user.index')
-                               ->withMessage(trans('lang_admin.user.error_delete'));
-            }
-        } catch (Exception $ex) {
-            return redirect() -> route('admin.user.index');
-        }
-    }
 }

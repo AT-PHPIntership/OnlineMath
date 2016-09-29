@@ -33,21 +33,12 @@
             </td>
             <td>
               <input type="text" name="answer[]" value="" id="{{$index}}" class="event_answer"/>
-              <script type="text/javascript">
-               var answer =  {{$question->answer}}
-                var index = {{  $index}}
-              </script>
+              <input type="hidden" name="answer_question[]" value="{{$question->answer}}">
             </td>
           </tr>
           @endforeach
         </tbody>
       </table>
-      <div class="form-group col-lg-12">
-        <label>@lang('user.test.score')
-        </label>
-      <input type="text" name="test_scores" id="score">
-      </div>
-
       <div class="ln_solid">
       </div>
       <div class="form-group print-hidden">
@@ -60,10 +51,6 @@
     </div>
   </div>
 </form>
-
-
 @stop
 @push('end-page-scripts')
-<script src="/js/test/main.js" type="text/javascript">
-</script>
 @endpush
