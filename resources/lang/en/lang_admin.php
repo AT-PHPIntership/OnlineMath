@@ -1,7 +1,5 @@
 <?php
-
 return [
-
     /*
     |--------------------------------------------------------------------------
     | Authentication Language Lines
@@ -34,6 +32,7 @@ return [
   'label_group'=>'Nhóm lớp',
   'label_male_number'=>'1',
   'label_female_number'=>'0',
+  'label_image'=>'Chọn hình cho câu hỏi',
     'user' => [
       'eg_name' => 'Tên',
       'eg_username'=>'Tên đăng nhập',
@@ -60,12 +59,23 @@ return [
        'error_delte'=>'Xóa người dùng không thành công',
        'delete_success'=>'Xóa người dùng thành công',
     ],
+    'test' => [
+    'label_question'=>'Câu hỏi',
+    'label_answer'=>'Câu trả lời',
+    'submit'=>'Hoàn tất',
+    'label_name'=>'Tên câu hỏi',
+    'create'=>'Thêm mới bài thi',
+    'number_question'=>'Số câu hỏi',
+    'create_success'=>'Thêm mới bài thi thành công',
+    'create_error'=>'Lỗi tạo bài thi',
+    ],
     'book'=>[
       'list_books'=>'Những quyển sách hiện có',
       'no'=>'STT',
       'name'=>'Tên',
       'author'=>'Tác giả',
       'description'=>'Mô tả',
-
+      'confirm_title'=>'Xóa sách',
+     'confirm_msg'=>'Bạn có thật sự muốn xóa không ?',
     ],
   ];
