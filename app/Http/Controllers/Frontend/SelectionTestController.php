@@ -61,33 +61,32 @@ class SelectionTestController extends Controller
     public function getExercise($id)
     {
         $questions = $this->questionRepository->with('test')->findByField('test_id', $id)->all();
-        return view('frontend.tests.exercise', compact('questions','id'));
+        return view('frontend.tests.exercise', compact('questions', 'id'));
     }
         /**
           * Store a newly created resource in storage.
           *
           * @param \Illuminate\Http\QuestionRequest $request Question request
+          * @param int                              $id      id
           *
           * @return \Illuminate\Http\Response
           */
-
-        public function postExercise(QuestionRequest $request, $id)
-        {
-             $data=$request->all();
-             $array_answer = $data['answer'];
-             $array_question = $data['answer_question'];
-             $score = Question::scores($array_answer, $array_question);
-             try {
-                 $data['test_scores'] = $score;
-                 $data['user_id']=Auth::user()->id;
-                 $data['test_id'] = $id;
-                 $result = $this->userTestRepository->create($data);
-                     Session::flash('success', trans('uesr.test.finish_test'));
-                     return view('frontend.tests.result', compact('score'));
-             } catch (Exception $e) {
-                 Session::flash('danger', trans('user.test.not_finish_test'));
-                 return redirect()->route('test.exercise', $data['test_id']);
-             }
+    public function postExercise(QuestionRequest $request, $id)
+    {
+        $data=$request->all();
+        $arrayAnswer = $data['answer'];
+        $arrayQuestion = $data['answer_question'];
+        $score = Question::scores($arrayAnswer, $arrayQuestion);
+        try {
+            $data['test_scores'] = $score;
+            $data['user_id']=Auth::user()->id;
+            $data['test_id'] = $id;
+             $this->userTestRepository->create($data);
+            Session::flash('success', trans('uesr.test.finish_test'));
+            return view('frontend.tests.result', compact('score'));
+        } catch (Exception $e) {
+            Session::flash('danger', trans('user.test.not_finish_test'));
+            return redirect()->route('test.exercise', $data['test_id']);
         }
-
+    }
 }

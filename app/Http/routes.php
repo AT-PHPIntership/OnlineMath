@@ -21,9 +21,9 @@ Route::group(['prefix' => 'admin'], function () {
 */
 Route::group(['prefix' => 'user'], function () {
     Route::group(['middleware' => ['auth', 'roles'], 'namespace' => 'Frontend', 'roles' => ['user']], function () {
-      Route::get('test/selection', ['uses' => 'SelectionTestController@getSelect', 'as' => 'test.selection']);
-      Route::get('/exercise/test/{id}', ['uses' => 'SelectionTestController@getExercise', 'as' => 'test.exercise']);
-      Route::post('exercise/test/{id}', ['uses' => 'SelectionTestController@postExercise', 'as' => 'test.exercise']);
+        Route::get('test/selection', ['uses' => 'SelectionTestController@getSelect', 'as' => 'test.selection']);
+        Route::get('/exercise/test/{id}', ['uses' => 'SelectionTestController@getExercise', 'as' => 'test.exercise']);
+        Route::post('exercise/test/{id}', ['uses' => 'SelectionTestController@postExercise', 'as' => 'test.exercise']);
     });
 });
 
