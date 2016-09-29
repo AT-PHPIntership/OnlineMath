@@ -54,6 +54,36 @@
       </table>
     </div>
   </div>
+  @if (count($books) > 0 )
+  <!-- Modal Confirmation -->
+  <div class="modal fade" id="confirm-deleting" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;
+          </button>
+          <h4 class="modal-title">@lang('lang_admin.book.confirm_title')
+          </h4>
+        </div>
+        <div class="modal-body">
+          <h5>@lang('lang_admin.book.confirm_msg')
+          </h5>
+        </div>
+        <div class="modal-footer">
+          <form action="{{ url('$item->id') }}" method="POST">
+            {{ csrf_field() }}
+            {{ method_field('DELETE') }}
+            <button type="submit" class="btn btn-danger">@lang('lang_admin.btn_delete')
+            </button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">@lang('lang_admin.btn_cancel')
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  @endif
 </div>
 @endsection
 @push('stylesheet')

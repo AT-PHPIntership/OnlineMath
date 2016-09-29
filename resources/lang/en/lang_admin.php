@@ -1,7 +1,5 @@
 <?php
-
 return [
-
     /*
     |--------------------------------------------------------------------------
     | Authentication Language Lines
@@ -62,6 +60,9 @@ return [
        'delete_success'=>'Xóa người dùng thành công',
     ],
     'test' => [
+    'label_question'=>'Câu hỏi',
+    'label_answer'=>'Câu trả lời',
+    'submit'=>'Hoàn tất',
     'label_name'=>'Tên câu hỏi',
     'create'=>'Thêm mới bài thi',
     'number_question'=>'Số câu hỏi',
@@ -74,6 +75,7 @@ return [
       'name'=>'Tên',
       'author'=>'Tác giả',
       'description'=>'Mô tả',
-
+      'confirm_title'=>'Xóa sách',
+     'confirm_msg'=>'Bạn có thật sự muốn xóa không ?',
     ],
   ];
