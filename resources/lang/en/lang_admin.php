@@ -78,4 +78,11 @@ return [
       'confirm_title'=>'Xóa sách',
      'confirm_msg'=>'Bạn có thật sự muốn xóa không ?',
     ],
+    'category'=>[
+      'edit_fail'=>'Cập nhật loại sách lỗi',
+      'edit_success'=>'Cập nhật thành công',
+      'label_id'=>'Id',
+      'label_name'=>'Name',
+      'label_action'=>'Thao tác',
+    ],
   ];

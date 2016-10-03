@@ -3,41 +3,70 @@
 namespace App\Http\Controllers\Backend;
 
 use Illuminate\Http\Request;
-
+use Yajra\Datatables\Datatables;
 use App\Http\Requests;
-use App\Http\Requests\TestRequest;
+use App\Models\Test;
+use App\Http\Requests\ExamRequest;
 use App\Http\Controllers\Controller;
 use App\Repositories\Eloquent\TestRepositoryEloquent;
 use App\Repositories\Eloquent\GroupRepositoryEloquent;
+use App\Repositories\Eloquent\UserTestRepositoryEloquent;
+use App\Repositories\Eloquent\QuestionRepositoryEloquent;
 use Session;
 use Exception;
 
 class TestController extends Controller
 {
 
-    protected $testRepository;
+    protected $examRepository;
     protected $groupRepository;
+    protected $userExamRepository;
+    protected $questionRepository;
+
 
     /**
      * Create a new authentication controller instance.
      *
-     * @param TestRepositoryEloquent  $test  the test repository
-     * @param GroupRepositoryEloquent $group the group repository
+     * @param TestRepositoryEloquent     $exam     the exam repository
+     * @param GroupRepositoryEloquent    $group    the group repository
+     * @param UserTestRepositoryEloquent $userExam the userExam repository
+     * @param QuestionRepositoryEloquent $question the question repository
      *
      * @return void
      */
-    public function __construct(TestRepositoryEloquent $test, GroupRepositoryEloquent $group)
+    public function __construct(TestRepositoryEloquent $exam, GroupRepositoryEloquent $group, UserTestRepositoryEloquent $userExam, QuestionRepositoryEloquent $question)
     {
-        $this->testRepository= $test;
+        $this->examRepository= $exam;
         $this->groupRepository= $group;
+        $this->userExamRepository = $userExam;
+        $this->questionRepository = $question;
     }
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    * Displays datatables front end view
+    *
+    * @return \Illuminate\View\View
+    */
     public function index()
     {
+        // if( Request::ajax() ){
+        //   return Datatables::of(Test::query())->make(true);
+        // }
+        return view('backend.exams.index');
+    }
+
+   /**
+    * Process datatables ajax request.
+    *
+    * @return \Illuminate\Http\JsonResponse
+    */
+    public function examData()
+    {
+
+        $exams = Test::select(['id', 'name', 'number_questions']);
+        return Datatables::of($exams)
+        ->addColumn('action', function () {
+            return '<button class="asian-btn-del">Delete</button>';
+        }) ->make(true);
     }
 
     /**
@@ -48,17 +77,17 @@ class TestController extends Controller
     public function create()
     {
          $groups=$this->groupRepository->all();
-          return view('backend.tests.create', compact('groups'));
+          return view('backend.exams.create', compact('groups'));
     }
 
     /**
       * Store a newly created resource in storage.
       *
-      * @param \Illuminate\Http\testRequest $request test request
+      * @param \Illuminate\Http\ExamRequest $request exam request
       *
       * @return \Illuminate\Http\Response
       */
-    public function store(TestRequest $request)
+    public function store(ExamRequest $request)
     {
 
         $data = $request->all();
@@ -67,17 +96,17 @@ class TestController extends Controller
             $nameimage=time() . '_'.$data['image'] .'.'. $image->getClientOriginalExtension();
             $image->move(public_path(config('path.imagetest')), $nameimage);
             $data['name']= $nameimage;
-            $result=$this->testRepository->create($data);
+            $result=$this->examRepository->create($data);
             if ($result) {
                 Session::flash('success', trans('lang_admin.test.create_success'));
-                return redirect()->route('admin.test.create');
+                return redirect()->route('admin.exam.create');
             } else {
                 Session::flash('danger', trans('lang_admin.test.create_error'));
-                return redirect()->route('admin.test.create');
+                return redirect()->route('admin.exam.create');
             }
         } else {
-              $result=$this->testRepository->create($data);
-              return redirect()->route('admin.test.create');
+              $result=$this->examRepository->create($data);
+              return redirect()->route('admin.exam.create');
         }
     }
 
@@ -92,23 +121,20 @@ class TestController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    * Show the form for editing the specified resource.
+    *
+    * @return \Illuminate\Http\Response
+    */
     public function edit()
     {
-        //
     }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @return \Illuminate\Http\Response
-     */
+   /**
+    * Update the specified resource in storage.
+    *
+    * @return \Illuminate\Http\Response
+    */
     public function update()
     {
-        //
     }
 
     /**
@@ -120,26 +146,20 @@ class TestController extends Controller
       */
     public function destroy($id)
     {
-
         try {
-            $this->testRepository->find($id);
-            $counttesttests =  $this->testTestRepository->findByField('test_id', $id, ['id'])->count();
-            $countlessondetails =  $this->lessonDetailRP->findByField('test_id', $id, ['id'])->count();
-            if ($counttesttests  || $countlessondetails) {
-                  return redirect()->route('admin.test.index')
-                                   ->withMessage(trans('lang_admin.test.error_delete_key'));
+            $this->examRepository->find($id);
+            $countUserExam =  $this->userExamRepository->findByField('test_id', $id, ['id'])->count();
+            $countQuestion = $this->questionRepository->findByField('test_id', $id, ['id'])->count();
+            if ($countUserExam  || $countQuestion) {
+                  $response['isSuccess'] = \Config::get('common.UNSUCCESSFUL_FLAG');
             } else {
-                $result = $this->testRepository->delete($id);
-                if ($result) {
-                    Session::flash('success', trans('lang_admin.test.delete_success'));
-                } else {
-                    Session::flash('danger', trans('lang_admin.test.error_delete'));
-                }
-                return redirect()->route('admin.test.index')
-                               ->withMessage(trans('lang_admin.test.error_delete'));
+                $response['isSuccess'] =\Config::get('common.SUCCESSFUL_FLAG');
+                $this->examRepository->delete($id);
             }
         } catch (Exception $ex) {
-            return redirect() -> route('admin.test.index');
+            $response['isSuccess'] = \Config::get('common.UNSUCCESSFUL_FLAG');
+            ;
         }
+        return \Response::json($response);
     }
 }

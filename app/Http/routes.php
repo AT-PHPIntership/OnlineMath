@@ -10,8 +10,16 @@ Route::group(['prefix' => 'admin'], function () {
         Route::resource('test', 'TestController');
          Route::resource('user', 'UserController');
         Route::resource('book', 'BookController');
+        Route::resource('category', 'CategoryController', [
+              'except' => ['destroy']
+          ]);
     });
 });
+Route::get('categories/data', ['uses' => 'Backend\CategoryController@categoryData', 'as' => 'categories.data']);
+
+//ajax exam
+Route::delete('admin/category/{id?}', 'Backend\CategoryController@destroy');
+//end ajax exam
 
 /*
 |--------------------------------------------------------------------------

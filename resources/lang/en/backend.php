@@ -46,5 +46,6 @@ return [
     'create'=>'Tạo mới người dùng',
     'updateuser'=> 'Cập nhật user',
     'listuser'=>'Danh sách user',
+    'list_category'=>'Danh sách thể loại',
     ],
 ];
