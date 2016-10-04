@@ -26,8 +26,8 @@ class LessonController extends Controller
     /**
      * Create a new authentication controller instance.
      *
-     * @param LessonRepositoryEloquent     $lesson     the lesson repository
-     * @param GroupRepositoryEloquent    $group    the group repository
+     * @param LessonRepositoryEloquent         $lesson         the lesson repository
+     * @param GroupRepositoryEloquent          $group          the group repository
      * @param CategoryLessonRepositoryEloquent $categoryLesson the categoryLesson repository
      *
      * @return void
@@ -132,7 +132,7 @@ class LessonController extends Controller
      * Update the specified resource in storage.
      *
      *@param \Illuminate\Http\LessonRequest $request Lesson request
-     * @param int                          $id      id
+     * @param int                            $id      id
      *
      * @return \Illuminate\Http\Response
      */
