@@ -25,7 +25,7 @@ class CategoryLessonRepositoryEloquent extends BaseRepository implements Categor
         return CategoryLesson::class;
     }
 
-    
+
 
     /**
      * Boot up the repository, pushing criteria

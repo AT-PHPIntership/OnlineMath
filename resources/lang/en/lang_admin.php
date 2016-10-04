@@ -85,4 +85,17 @@ return [
       'label_name'=>'Name',
       'label_action'=>'Thao tác',
     ],
+    'lesson'=>[
+      'label_id'=>'Id',
+      'label_descrition'=>'Mô tả',
+      'label_name'=>'Tên bài',
+      'label_group'=>'Lớp',
+      'label_category'=>'Thể loại',
+      'label_index'=>'Số mục',
+      'label_page'=>'Số trang',
+      'description'=>'Mô tả',
+      'btn_cancel'=>'Cancel',
+      'action'=>'Thao thác',
+
+    ],
   ];

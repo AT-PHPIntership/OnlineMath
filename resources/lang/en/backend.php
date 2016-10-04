@@ -47,5 +47,10 @@ return [
     'updateuser'=> 'Cập nhật user',
     'listuser'=>'Danh sách user',
     'list_category'=>'Danh sách thể loại',
+    'show_lesson'=>'Show bài học',
+    'list_lesson'=>'Danh sách bài học',
+    'update_lesson'=>'Cập nhật thông tin bài học',
+    'create_lesson'=>'Thêm bài học',
+
     ],
 ];

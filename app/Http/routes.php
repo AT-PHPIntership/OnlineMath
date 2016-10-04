@@ -13,13 +13,16 @@ Route::group(['prefix' => 'admin'], function () {
         Route::resource('category', 'CategoryController', [
               'except' => ['destroy']
           ]);
+          Route::resource('lesson', 'LessonController', [
+                'except' => ['destroy']
+            ]);
     });
 });
 Route::get('categories/data', ['uses' => 'Backend\CategoryController@categoryData', 'as' => 'categories.data']);
-
-//ajax exam
 Route::delete('admin/category/{id?}', 'Backend\CategoryController@destroy');
-//end ajax exam
+
+Route::get('lessons/data', ['uses' => 'Backend\LessonController@lessonData', 'as' => 'lessons.data']);
+Route::delete('admin/lesson/{id?}', 'Backend\LessonController@destroy');
 
 /*
 |--------------------------------------------------------------------------
