@@ -46,11 +46,13 @@ return [
     'create'=>'Tạo mới người dùng',
     'updateuser'=> 'Cập nhật user',
     'listuser'=>'Danh sách user',
+     'create_category'=>'Thêm mới loại sách',
     'list_category'=>'Danh sách thể loại',
     'show_lesson'=>'Show bài học',
     'list_lesson'=>'Danh sách bài học',
     'update_lesson'=>'Cập nhật thông tin bài học',
     'create_lesson'=>'Thêm bài học',
+    'update_category'=>'Cập nhật thông tin loại sách',
 
     ],
 ];

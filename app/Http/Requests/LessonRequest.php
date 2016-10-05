@@ -28,7 +28,6 @@ class LessonRequest extends Request
                   'name'   => 'required',
                   'group_id' => 'required',
                   'description'=>'required|max:200|min:40',
-                  'category_id'=>'required',
                   'page'=>'required|min:2',
                 ];
             case 'POST':

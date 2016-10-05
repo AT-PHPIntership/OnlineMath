@@ -20,6 +20,7 @@ return [
       'submit'=>'Hoàn thành',
     ],
     'test'=>[
+      'choice_test'=>'Lựa chọn bài thi',
       'score'=>'Kế quả',
       'not_finish_test'=>'Không hoàn thành bài kiểm tra',
       'finish_test'=>'Hoàn tất bài kiểm tra',

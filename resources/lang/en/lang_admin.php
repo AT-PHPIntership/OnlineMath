@@ -33,11 +33,11 @@ return [
   'label_male_number'=>'1',
   'label_female_number'=>'0',
   'label_image'=>'Chọn hình cho câu hỏi',
+  'confirm_title'=>'Xóa thành viên',
+ 'confirm_msg'=>'Bạn có thật sự muốn xóa không ?',
     'user' => [
       'eg_name' => 'Tên',
       'eg_username'=>'Tên đăng nhập',
-      'confirm_title'=>'Xóa thành viên',
-     'confirm_msg'=>'Bạn có thật sự muốn xóa không ?',
       'edit_sucsess'=>'Cập nhật thành công',
         'edit_fail'=>'Lỗi cập nhật vui lòng kiểm tra lại',
         'danger' => 'Lỗi: ',
@@ -82,8 +82,9 @@ return [
       'edit_fail'=>'Cập nhật loại sách lỗi',
       'edit_success'=>'Cập nhật thành công',
       'label_id'=>'Id',
-      'label_name'=>'Name',
+      'label_name'=>'Tên loại',
       'label_action'=>'Thao tác',
+      'create_success'=>'Thêm mới thành công',
     ],
     'lesson'=>[
       'label_id'=>'Id',
@@ -96,6 +97,7 @@ return [
       'description'=>'Mô tả',
       'btn_cancel'=>'Cancel',
       'action'=>'Thao thác',
+      'edit_success'=>'Cập nhật bài học thành công',
 
     ],
   ];

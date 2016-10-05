@@ -12,7 +12,7 @@
     {{ method_field('PUT') }}
     <div class="item form-group">
       <label class="control-label col-md-3 col-sm-3 col-xs-12"
-             for="name">@lang('lang_admin.label_name')
+             for="name">@lang('lang_admin.category.label_name')
         <span class="required">
           @lang('lang_admin.label_required')
         </span>
