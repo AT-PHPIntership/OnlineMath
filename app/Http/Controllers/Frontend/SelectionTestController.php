@@ -81,9 +81,15 @@ class SelectionTestController extends Controller
             $data['test_scores'] = $score;
             $data['user_id']=Auth::user()->id;
             $data['test_id'] = $id;
-             $this->userTestRepository->create($data);
-            Session::flash('success', trans('uesr.test.finish_test'));
-            return view('frontend.tests.result', compact('score'));
+            dd($data);
+            $result=$this->userTestRepository->create($data);
+            if ($result) {
+                Session::flash('success', trans('uesr.test.finish_test'));
+                return view('frontend.tests.result', compact('score'));
+            } else {
+                Session::flash('danger', trans('user.test.not_finish_test'));
+                return redirect()->route('test.exercise', $data['test_id']);
+            }
         } catch (Exception $e) {
             Session::flash('danger', trans('user.test.not_finish_test'));
             return redirect()->route('test.exercise', $data['test_id']);

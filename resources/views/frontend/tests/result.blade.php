@@ -7,6 +7,6 @@
 <div class="form-group col-lg-12">
   <label>@lang('user.test.score')
   </label>
-<input type="text" name="score" id="score">
+<input type="text" name="score" value="{{$score}}">
 </div>
 @stop
