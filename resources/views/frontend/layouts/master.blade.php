@@ -14,10 +14,10 @@
     </header>
     <!-- /header -->
     <!--/header-->
-    @include('frontend.layouts.partials.slider')
     <!--content-->
     <section id="recent-works">
       <div class="container">
+        @yield('section-title')
         @yield('content')
       </div>
     </section>

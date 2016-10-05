@@ -35,6 +35,10 @@ Route::group(['prefix' => 'user'], function () {
         Route::get('test/selection', ['uses' => 'SelectionTestController@getSelect', 'as' => 'test.selection']);
         Route::get('/exercise/test/{id}', ['uses' => 'SelectionTestController@getExercise', 'as' => 'test.exercise']);
         Route::post('exercise/test/{id}', ['uses' => 'SelectionTestController@postExercise', 'as' => 'test.exercise']);
+
+        Route::get('lesson/choice', ['uses' => 'LearnMathController@getlesson', 'as' => 'lesson.choice']);
+        Route::get('/learn/lesson/{id}', ['uses' => 'LearnMathController@gettestLesson', 'as' => 'test.lesson']);
+        Route::post('learn/lesson/{id}', ['uses' => 'LearnMathController@posttestLesson', 'as' => 'test.lesson']);
     });
 });
 

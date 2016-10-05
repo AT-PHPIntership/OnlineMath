@@ -15,7 +15,7 @@ class CreateTestsLessonsTable extends Migration
         Schema::create('tests_lessons', function(Blueprint $table){
             $table->increments('id');
             $table->string('name', 20);
-            $table->integer('number_quenstion')->unsigned();
+            $table->string('question',200);
             $table->integer('answer')->unsigned();
             $table->integer('lesson_id')->unsigned();
             $table->foreign('lesson_id')->references('id')->on('lessons');

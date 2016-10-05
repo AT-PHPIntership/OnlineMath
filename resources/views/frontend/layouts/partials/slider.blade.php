@@ -12,10 +12,10 @@
       <div class="item active">
       </div>
       <!--/.item-->
-      <div class="item" id="slidercontent">
+      <div class="item">
       </div>
       <!--/.item-->
-      <div class="item" id="slider">
+      <div class="item" >
       </div>
       <!--/.item-->
 

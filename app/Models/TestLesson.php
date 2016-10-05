@@ -21,7 +21,7 @@ class TestLesson extends Model implements Transformable
     protected $fillable = array(
         'id',
         'lesson_id',
-        'number_question',
+        'question',
         'answer',
         'created_at',
         'updated_at'
@@ -34,5 +34,24 @@ class TestLesson extends Model implements Transformable
     public function lesson()
     {
         return $this->belongsTo('App\Models\Lesson', 'lesson_id');
+    }
+    /**
+      * Compare array
+      *
+      * @param array $array1 array1
+      * @param array $array2 array2
+      *
+      * @return \Illuminate\Http\Response
+      */
+    public static function scores($array1, $array2)
+    {
+        $count = count($array2);
+        $score =0;
+        for ($i =1; $i< $count; $i++) {
+            if ($array1[$i]==$array2[$i]) {
+                $score++;
+            }
+        }
+        return $score;
     }
 }
